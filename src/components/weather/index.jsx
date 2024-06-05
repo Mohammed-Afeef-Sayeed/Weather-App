@@ -11,12 +11,12 @@ const Weather = () => {
     async function fetchWeather(searchCity) {
         setLoad(true)
 
-        const url = `https://open-weather13.p.rapidapi.com/city/${searchCity}/EN`;
+        const url = `https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=${searchCity}`;
         const options = {
             method: 'GET',
             headers: {
                 'x-rapidapi-key': '6d65dec7e5msh8cea8203d359363p1c9025jsnb4477f47ad05',
-                'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+                'x-rapidapi-host': 'weather-by-api-ninjas.p.rapidapi.com'
             }
         };
 
@@ -38,7 +38,7 @@ const Weather = () => {
     }
 
     function getCurrentDate() {
-        return new Date().toLocaleDateString('en-us',{
+        return new Date().toLocaleDateString('en-us', {
             weekday: 'long',
             month: 'long',
             day: "numeric",
@@ -61,27 +61,27 @@ const Weather = () => {
             {
                 load ? <div className="loading">Loading ...... </div> :
                     <div>
-                        <div className="city-name">
+                        {/* <div className="city-name">
                             <h2>{data?.name}, <span>{data?.sys.country}</span></h2>
-                        </div> 
+                        </div> */}
                         <div className="date">
                             <span>{getCurrentDate()}</span>
                         </div>
-                        <div className="temp">{data?.main?.temp}</div>
-                        <p className="description">
+                        <div className="temp">{data?.temp}</div>
+                        {/* <p className="description">
                             {data && data.weather && data.weather[0] ? data.weather[0].description : ''}
-                        </p>
+                        </p> */}
                         <div className="weather-info">
                             <div>
                                 <div>
                                     <p>Wind Speed</p>
-                                    <p className="wind">{data?.wind?.speed}</p>
+                                    <p className="wind">{data?.wind_speed}</p>
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <p>Humidity</p>
-                                    <p className="humidity">{data?.main?.humidity}</p>
+                                    <p className="humidity">{data?.humidity}</p>
                                 </div>
                             </div>
                         </div>
