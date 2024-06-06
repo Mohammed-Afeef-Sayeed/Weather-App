@@ -25,6 +25,7 @@ const Weather = () => {
             const result = await response.json();
             if (result) {
                 setData(result)
+                console.log(1);
                 setLoad(false)
             }
         } catch (error) {
